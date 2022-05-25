@@ -17,13 +17,13 @@ const { series, parallel, src, dest, watch } = require('gulp'),
 const allCleanup = () => del('dist/**/*');
 
 // delete all CSS files and their sourcemaps
-const cssCleanup = () => del('dist/*.{css,css.map}');
+const cssCleanup = () => del('dist/index.{css,css.map}');
 
 // delete static files
 const staticCleanup = () => del(
     [
         'dist/**/*', // delete all files from /dist/
-        '!dist/**/*.{css,css.map}', // except CSS and CSS map files
+        '!dist/**/index.{css,css.map}', // except CSS and CSS map files
     ],
     { onlyFiles: true } // do not delete folders (would delete all folders otherwise)
 );
